@@ -5,36 +5,42 @@ import { ServiceCard } from '../Card/ServiceCard';
 export function ServicesSection() {
   const services = [
     {
+      id: "stream-overlays",
       title: "Stream Overlays",
       description: "Custom overlays that make your stream stand out with professional animations and your unique branding.",
       icon: Monitor,
       features: ["Custom animated overlays", "Chat box designs", "Alert animations", "Starting/BRB screens"]
     },
     {
+      id: "video-production",
       title: "Video Production",
       description: "Engaging intros, outros, and promotional videos that captivate your audience from the first second.",
       icon: Video,
       features: ["Animated intros & outros", "Channel trailers", "Highlight reels", "Social media videos"]
     },
     {
+      id: "custom-emotes",
       title: "Custom Emotes",
       description: "Expressive emotes that build community and engagement across Twitch, Discord, and YouTube.",
       icon: Heart,
       features: ["Twitch emotes", "Discord stickers", "Animated emotes", "Sub badges & bits"]
     },
     {
+      id: "graphics-design",
       title: "Graphics Design",
       description: "Professional graphics for all your branding needs, from business cards to social media posts.",
       icon: Palette,
       features: ["Logo design", "Business cards", "Social media graphics", "Thumbnail designs"]
     },
     {
+      id: "brand-identity",
       title: "Brand Identity",
       description: "Complete branding solutions that establish your unique presence across all platforms.",
       icon: Zap,
       features: ["Brand guidelines", "Color schemes", "Typography selection", "Style consistency"]
     },
     {
+      id: "marketing-materials",
       title: "Marketing Materials",
       description: "Eye-catching flyers, banners, and promotional materials to grow your audience.",
       icon: FileImage,
@@ -56,7 +62,14 @@ export function ServicesSection() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <ServiceCard key={index} {...service} />
+            <ServiceCard key={index} {...service}>
+              <a
+                href={`/services/${service.id}`}
+                className="mt-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-3 px-6 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 hover:scale-105 inline-block text-center"
+              >
+                Learn More
+              </a>
+            </ServiceCard>
           ))}
         </div>
       </div>
