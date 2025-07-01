@@ -99,8 +99,10 @@ export function Header() {
                   </div>
                 </div>
               </div>
-            </div>
-
+            </div>  
+            <Link to="/portfolio" className="text-white hover:text-purple-400 transition-colors">
+              Portfolio
+            </Link>
             <Link to="/about" className="text-white hover:text-purple-400 transition-colors">
               About
             </Link>
