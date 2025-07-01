@@ -35,7 +35,9 @@ body {
 
 /* Smooth animations */
 * {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -179,7 +181,8 @@ video::-webkit-media-controls-timeline {
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
   }
   50% {
@@ -225,13 +228,18 @@ video::-webkit-media-controls-timeline {
 }
 
 .project-grid-item::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(45deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(139, 92, 246, 0.1),
+    transparent
+  );
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -252,7 +260,12 @@ video::-webkit-media-controls-timeline {
 }
 
 .loading-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
   background-size: 200px 100%;
   animation: shimmer 1.5s infinite;
 }
@@ -264,13 +277,18 @@ video::-webkit-media-controls-timeline {
 }
 
 .load-more-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.5s;
 }
 
@@ -286,7 +304,8 @@ video::-webkit-media-controls-timeline {
 }
 
 @keyframes gradient-shift {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0% 50%;
   }
   50% {
@@ -300,40 +319,40 @@ video::-webkit-media-controls-timeline {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  
+
   /* Faster marquee on mobile */
   .animate-marquee {
     animation: marquee 20s linear infinite;
   }
-  
+
   .animate-marquee-reverse {
     animation: marquee-reverse 20s linear infinite;
   }
-  
+
   /* Modal adjustments for mobile */
   .modal-content {
     margin: 0.5rem;
     max-height: 95vh;
     border-radius: 16px;
   }
-  
+
   /* Project grid adjustments */
   .project-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
+
   /* Tab navigation mobile */
   .tab-navigation {
     gap: 0.5rem;
     padding: 0 1rem;
   }
-  
+
   .tab-button {
     font-size: 0.875rem;
     padding: 0.5rem 1rem;
   }
-  
+
   /* Load more button mobile */
   .load-more-btn {
     padding: 0.75rem 1.5rem;
@@ -374,11 +393,11 @@ video::-webkit-media-controls-timeline {
   .animate-pulse-glow {
     animation: none;
   }
-  
+
   .project-grid-item:hover {
     transform: none;
   }
-  
+
   * {
     transition-duration: 0.01ms !important;
   }
@@ -390,16 +409,16 @@ video::-webkit-media-controls-timeline {
     background: rgba(255, 255, 255, 0.2);
     border: 2px solid rgba(255, 255, 255, 0.5);
   }
-  
+
   .text-gray-300,
   .text-gray-400 {
     color: #ffffff;
   }
-  
+
   .project-grid-item {
     border: 2px solid rgba(255, 255, 255, 0.3);
   }
-  
+
   .project-grid-item:hover {
     border-color: #ffffff;
   }
@@ -413,12 +432,12 @@ video::-webkit-media-controls-timeline {
   .modal-overlay {
     display: none !important;
   }
-  
+
   .project-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
-  
+
   .project-grid-item {
     break-inside: avoid;
     page-break-inside: avoid;
@@ -434,9 +453,14 @@ video::-webkit-media-controls-timeline {
 /* Dark mode specific adjustments */
 @media (prefers-color-scheme: dark) {
   .loading-shimmer {
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      transparent
+    );
   }
-  
+
   .image-loading {
     background: linear-gradient(45deg, #0f0f0f, #1a1a1a);
   }
@@ -485,4 +509,207 @@ html {
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
+}
+/* Add these new styles to your existing CSS */
+
+/* Team section enhancements */
+.team-member-card:hover .team-avatar {
+  transform: scale(1.1);
+}
+
+.team-avatar {
+  transition: transform 0.3s ease;
+}
+
+/* Stats section animations */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stat-item {
+  animation: countUp 0.6s ease-out;
+}
+
+.stat-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.stat-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.stat-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.stat-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+/* Mission/Vision cards */
+.mission-vision-card {
+  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mission-vision-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+}
+
+/* Tools section grid */
+.tools-grid-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.tools-grid-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.tools-grid-item:hover::before {
+  left: 100%;
+}
+
+/* Why choose us hover effects */
+.why-choose-card {
+  transform: translateY(0);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.why-choose-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Responsive adjustments for about page */
+@media (max-width: 768px) {
+  .about-hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .mission-vision-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .why-choose-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}
+/* Enhanced background animations for about page */
+@keyframes float-1 {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  33% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  66% {
+    transform: translateY(10px) translateX(-10px);
+  }
+}
+
+@keyframes float-2 {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  33% {
+    transform: translateY(15px) translateX(-15px);
+  }
+  66% {
+    transform: translateY(-10px) translateX(5px);
+  }
+}
+
+@keyframes float-3 {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-15px) translateX(15px);
+  }
+}
+
+/* Apply floating animations to background elements */
+.about-bg-float-1 {
+  animation: float-1 20s ease-in-out infinite;
+}
+
+.about-bg-float-2 {
+  animation: float-2 25s ease-in-out infinite;
+}
+
+.about-bg-float-3 {
+  animation: float-3 30s ease-in-out infinite;
+}
+
+/* Enhanced gradient overlays */
+.colorful-overlay {
+  background: linear-gradient(
+    45deg,
+    rgba(168, 85, 247, 0.1) 0%,
+    rgba(236, 72, 153, 0.1) 25%,
+    rgba(59, 130, 246, 0.1) 50%,
+    rgba(16, 185, 129, 0.1) 75%,
+    rgba(245, 158, 11, 0.1) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Enhanced card backgrounds */
+.about-card-enhanced {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.about-card-enhanced:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(168, 85, 247, 0.4);
 }
