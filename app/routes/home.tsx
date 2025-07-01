@@ -1,13 +1,37 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import { Header } from "../components/Layout/Header";
+import { HeroSection } from "../components/Section/HeroSection";
+import { ServicesSection } from "../components/Section/ServicesSection";
+import { ToolsSection } from "../components/Section/ToolsSection";
+import { ProjectsSection } from "../components/Section/ProjectsSection";
+import { AboutSection } from "../components/Section/AboutSection";
+import { TestimonialsSection } from "../components/Section/TestimonialsSection";
+import { ContactForm } from "../components/Form/ContactForm";
+import { Footer } from "../components/Layout/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Mascort - Premium Graphics & Video Animation for Content Creators" },
+    { name: "description", content: "Professional overlays, animated intros, custom emotes for Twitch streamers, YouTubers & content creators. 100% women-led creative studio from Pakistan." },
+    { name: "keywords", content: "twitch overlays, youtube intros, custom emotes, stream graphics, content creator design, women empowerment, pakistan creative studio" },
+    { property: "og:title", content: "Mascort - Premium Graphics & Video Animation" },
+    { property: "og:description", content: "Elevate your content with professional graphics designed by our all-women team" },
+    { property: "og:type", content: "website" },
   ];
 }
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <div className="min-h-screen bg-black">
+      <Header />
+      <HeroSection />
+      <ServicesSection />
+      <ToolsSection />
+      <ProjectsSection />
+      <AboutSection />
+      <TestimonialsSection />
+      <ContactForm />
+      <Footer />
+    </div>
+  );
 }
