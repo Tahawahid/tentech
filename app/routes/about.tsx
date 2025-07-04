@@ -1,11 +1,11 @@
 import type { Route } from "./+types/about";
 import { Header } from "../components/Layout/Header";
-import { AboutHeroSection } from "../components/Section/AboutHeroSection";
-import { MissionVisionSection } from "../components/Section/MissionVisionSection";
-import { TeamSection } from "../components/Section/TeamSection";
-import { ClientStatsSection } from "../components/Section/ClientStatsSection";
-import { CompanyToolsSection } from "../components/Section/CompanyToolsSection";
-import { WhyChooseUsSection } from "../components/Section/WhyChooseUsSection";
+import { AboutHeroSection } from "../components/PagesSection/About/AboutHeroSection";
+import { MissionVisionSection } from "../components/PagesSection/About/MissionVisionSection";
+import { TeamSection } from "../components/PagesSection/About/TeamSection";
+import { ClientStatsSection } from "../components/PagesSection/About/ClientStatsSection";
+import { CompanyToolsSection } from "../components/PagesSection/About/CompanyToolsSection";
+import { WhyChooseUsSection } from "../components/PagesSection/About/WhyChooseUsSection";
 import { TestimonialsSection } from "../components/Section/TestimonialsSection";
 import { ContactForm } from "../components/Form/ContactForm";
 import { Footer } from "../components/Layout/Footer";

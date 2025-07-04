@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Star } from 'lucide-react';
-import type { ServiceData } from '../../utils/serviceData';
-import { getAllServices } from '../../utils/serviceData';
+import type { ServiceData } from '../../../../utils/serviceData';
+import { getAllServices } from '../../../../utils/serviceData';
 
 interface RelatedServicesSectionProps {
   currentService: ServiceData;

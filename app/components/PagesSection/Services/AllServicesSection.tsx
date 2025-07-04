@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, Star, Clock } from 'lucide-react';
-import { getAllServices } from '../../utils/serviceData';
+import { getAllServices } from '../../../utils/serviceData';
 
 export function AllServicesSection() {
   const services = getAllServices();

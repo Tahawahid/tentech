@@ -1,6 +1,6 @@
 import React from 'react';
 import { Play, ArrowRight, Sparkles } from 'lucide-react';
-import { Button } from '../Button/Button';
+import { Button } from '../../Button/Button';
 
 export function HeroSection() {
   return (

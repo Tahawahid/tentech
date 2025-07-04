@@ -1,7 +1,7 @@
 import type { Route } from "./+types/services";
 import { Header } from "../components/Layout/Header";
-import { ServicesHeroSection } from "../components/Section/ServicesHeroSection";
-import { AllServicesSection } from "../components/Section/AllServicesSection";
+import { ServicesHeroSection } from "../components/PagesSection/Services/ServicesHeroSection";
+import { AllServicesSection } from "../components/PagesSection/Services/AllServicesSection";
 import { TestimonialsSection } from "../components/Section/TestimonialsSection";
 import { ContactForm } from "../components/Form/ContactForm";
 import { Footer } from "../components/Layout/Footer";

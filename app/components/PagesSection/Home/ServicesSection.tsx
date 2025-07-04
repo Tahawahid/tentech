@@ -1,6 +1,6 @@
 import React from 'react';
 import { Monitor, Video, Palette, FileImage, Zap, Heart } from 'lucide-react';
-import { ServiceCard } from '../Card/ServiceCard';
+import { ServiceCard } from '../../Card/ServiceCard';
 
 export function ServicesSection() {
   const services = [

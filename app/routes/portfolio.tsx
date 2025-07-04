@@ -1,10 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import type { Route } from "./+types/portfolio";
 import { Header } from "../components/Layout/Header";
-import { PortfolioHero } from "../components/Portfolio/PortfolioHero";
-import { PortfolioFilter } from "../components/Portfolio/PortfolioFilter";
-import { PortfolioCard } from "../components/Portfolio/PortfolioCard";
-import { ProjectModal } from "../components/Portfolio/ProjectModal";
+import { PortfolioHero } from "../components/PagesSection/Portfolio/PortfolioHero";
+import { PortfolioFilter } from "../components/PagesSection/Portfolio/PortfolioFilter";
+import { PortfolioCard } from "../components/PagesSection/Portfolio/PortfolioCard";
+import { ProjectModal } from "../components/PagesSection/Portfolio/ProjectModal";
 import { ContactForm } from "../components/Form/ContactForm";
 import { Footer } from "../components/Layout/Footer";
 import { getAllProjects, getCategories, type PortfolioProject } from "../utils/portfolioData";

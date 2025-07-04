@@ -1,10 +1,10 @@
 import type { Route } from "./+types/home";
 import { Header } from "../components/Layout/Header";
-import { HeroSection } from "../components/Section/HeroSection";
-import { ServicesSection } from "../components/Section/ServicesSection";
-import { ToolsSection } from "../components/Section/ToolsSection";
-import { ProjectsSection } from "../components/Section/ProjectsSection";
-import { AboutSection } from "../components/Section/AboutSection";
+import { HeroSection } from "../components/PagesSection/Home/HeroSection";
+import { ServicesSection } from "../components/PagesSection/Home/ServicesSection";
+import { ToolsSection } from "../components/PagesSection/Home/ToolsSection";
+import { ProjectsSection } from "../components/PagesSection/Home/ProjectsSection";
+import { AboutSection } from "../components/PagesSection/Home/AboutSection";
 import { TestimonialsSection } from "../components/Section/TestimonialsSection";
 import { ContactForm } from "../components/Form/ContactForm";
 import { Footer } from "../components/Layout/Footer";
