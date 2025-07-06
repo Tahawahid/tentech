@@ -1,7 +1,7 @@
 import React from 'react';
 import { Play, ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from '../../Button/Button';
-
+import { GetStartedButton } from '../../Button/GetStartedButton';
 export function HeroSection() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -37,9 +37,9 @@ export function HeroSection() {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button variant="primary" size="lg" icon={ArrowRight} iconPosition="right">
+           <GetStartedButton variant="primary" size="lg">
               Start Your Project
-            </Button>
+            </GetStartedButton>
             <Button variant="outline" size="lg" icon={Play}>
               View Our Work
             </Button>
