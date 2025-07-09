@@ -61,7 +61,7 @@ export default function Portfolio() {
       
       {/* Portfolio Grid Section */}
       <section className="py-20 bg-gradient-to-b from-black to-purple-900/10">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-6xl">
           {/* Filter */}
           <PortfolioFilter
             categories={categories}
@@ -95,7 +95,7 @@ export default function Portfolio() {
       
       {/* Featured Projects Section */}
       <section className="py-20 bg-gradient-to-b from-purple-900/10 to-black">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Featured <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Work</span>
@@ -119,7 +119,7 @@ export default function Portfolio() {
       
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-purple-900/20 to-pink-900/20">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-4 max-w-6xl text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to Create Something <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Amazing</span>?
           </h2>

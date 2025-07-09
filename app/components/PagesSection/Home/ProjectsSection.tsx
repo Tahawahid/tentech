@@ -8,26 +8,27 @@ interface ProjectItem {
   category: string;
   src: string;
   isVideo?: boolean;
-  actualSrc?: string; // Store the actual working image source
+  actualSrc?: string;
 }
 
 export function ProjectsSection() {
   const [activeTab, setActiveTab] = useState('all');
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [visibleCount, setVisibleCount] = useState(12); // Show first 3-4 rows initially
+  const [visibleCount, setVisibleCount] = useState(12);
   const [loadingMore, setLoadingMore] = useState(false);
 
   // Helper function to find working image format
   const findWorkingImageSrc = (basePath: string, fileName: string): Promise<string> => {
     const extensions = ['png', 'jpg', 'jpeg', 'webp', 'svg'];
     
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       let index = 0;
       
       const tryNextExtension = () => {
         if (index >= extensions.length) {
-          reject(new Error('No working image format found'));
+          // If no format works, return default PNG
+          resolve(`${basePath}/${fileName}.png`);
           return;
         }
         
@@ -47,26 +48,26 @@ export function ProjectsSection() {
     });
   };
 
-  // Generate project data with multiple format support
+  // Generate project data
   const generateProjects = (): ProjectItem[] => {
     return [
-      // Banner images (1:2 ratio) - will auto-detect format
+      // Banner images
       ...Array.from({ length: 8 }, (_, i) => ({
         id: `banner-${i + 1}`,
         type: 'banner' as const,
         title: `Stream Banner ${i + 1}`,
         category: 'Stream Graphics',
-        src: `/images/banner/${i + 1}`, // Base path without extension
+        src: `/images/banner/${i + 1}`,
         isVideo: false
       })),
       
-      // Logo images (1:1 ratio) - will auto-detect format
+      // Logo images
       ...Array.from({ length: 23 }, (_, i) => ({
         id: `logo-${i + 1}`,
         type: 'logo' as const,
         title: `Logo Design ${i + 1}`,
         category: 'Brand Identity',
-        src: `/images/logos/${i + 1}`, // Base path without extension
+        src: `/images/logos/${i + 1}`,
         isVideo: false
       })),
       
@@ -90,23 +91,23 @@ export function ProjectsSection() {
         isVideo: true
       })),
       
-      // Mascort projects (using some banners as examples)
+      // Mascort projects
       ...Array.from({ length: 4 }, (_, i) => ({
         id: `mascort-${i + 1}`,
         type: 'mascort' as const,
         title: `Mascort Project ${i + 1}`,
         category: 'Complete Package',
-        src: `/images/banner/${i + 1}`, // Base path without extension
+        src: `/images/banner/${i + 1}`,
         isVideo: false
       })),
       
-      // Emotes (using some logos as examples)
+      // Emotes
       ...Array.from({ length: 8 }, (_, i) => ({
         id: `emote-${i + 1}`,
         type: 'emote' as const,
         title: `Custom Emote ${i + 1}`,
         category: 'Twitch Emotes',
-        src: `/images/logos/${i + 1}`, // Base path without extension
+        src: `/images/logos/${i + 1}`,
         isVideo: false
       }))
     ];
@@ -114,20 +115,18 @@ export function ProjectsSection() {
 
   const [projects, setProjects] = useState<ProjectItem[]>(generateProjects());
 
-  // Resolve image sources on component mount and when tab changes
+  // Resolve image sources on component mount
   useEffect(() => {
     const resolveImageSources = async () => {
       const updatedProjects = await Promise.all(
         projects.map(async (project) => {
           if (!project.isVideo && !project.actualSrc) {
             try {
-              const actualSrc = await findWorkingImageSrc(
-                project.src.includes('/banner/') ? '/images/banner' : '/images/logos',
-                project.src.split('/').pop() || '1'
-              );
+              const basePath = project.src.includes('/banner/') ? '/images/banner' : '/images/logos';
+              const fileName = project.src.split('/').pop() || '1';
+              const actualSrc = await findWorkingImageSrc(basePath, fileName);
               return { ...project, actualSrc };
             } catch {
-              // Fallback to original src if no format works
               return { ...project, actualSrc: `${project.src}.png` };
             }
           }
@@ -159,8 +158,6 @@ export function ProjectsSection() {
 
   const loadMoreProjects = () => {
     setLoadingMore(true);
-    
-    // Simulate loading delay for better UX
     setTimeout(() => {
       setVisibleCount(prev => Math.min(prev + 8, filteredProjects.length));
       setLoadingMore(false);
@@ -169,7 +166,7 @@ export function ProjectsSection() {
 
   const handleTabChange = (tabId: string) => {
     setActiveTab(tabId);
-    setVisibleCount(12); // Reset to initial count when changing tabs
+    setVisibleCount(12);
   };
 
   const openModal = (project: ProjectItem) => {
@@ -192,9 +189,9 @@ export function ProjectsSection() {
 
   const getGridItemClass = (project: ProjectItem) => {
     if (project.type === 'logo' || project.type === 'emote') {
-      return 'aspect-square'; // 1:1 ratio
+      return 'aspect-square';
     }
-    return 'aspect-[2/1]'; // 1:2 ratio for banners and videos
+    return 'aspect-[2/1]';
   };
 
   const getImageSrc = (project: ProjectItem) => {
@@ -203,13 +200,13 @@ export function ProjectsSection() {
 
   return (
     <section id="projects" className="py-20 bg-gradient-to-b from-black to-purple-900/20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-6xl">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Our <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Portfolio</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
             Discover the incredible work created by our talented team of women designers and animators
           </p>
           
@@ -230,7 +227,7 @@ export function ProjectsSection() {
               </button>
             ))}
           </div>
-        </div>
+                </div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
@@ -309,7 +306,7 @@ export function ProjectsSection() {
         {hasMoreProjects && (
           <div className="text-center">
             <button
-                            onClick={loadMoreProjects}
+              onClick={loadMoreProjects}
               disabled={loadingMore}
               className={`group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-white font-semibold transition-all duration-300 hover:from-purple-700 hover:to-pink-700 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 ${
                 loadingMore ? 'animate-pulse' : ''
@@ -332,7 +329,6 @@ export function ProjectsSection() {
                 )}
               </div>
               
-              {/* Animated background effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </button>
           </div>

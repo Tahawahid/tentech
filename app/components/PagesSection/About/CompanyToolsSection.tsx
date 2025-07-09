@@ -15,14 +15,14 @@ export function CompanyToolsSection() {
   return (
     <section className="py-20 bg-gradient-to-b from-indigo-900/30 via-blue-900/20 to-purple-900/30 relative overflow-hidden">
       <div className="absolute top-10 left-10 w-56 h-56 bg-indigo-400/15 rounded-full blur-2xl"></div>
-<div className="absolute bottom-10 right-10 w-56 h-56 bg-blue-400/15 rounded-full blur-2xl"></div>
+      <div className="absolute bottom-10 right-10 w-56 h-56 bg-blue-400/15 rounded-full blur-2xl"></div>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Our <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Creative Arsenal</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Industry-leading tools and software mastered by our talented team
           </p>
         </div>

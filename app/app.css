@@ -297,20 +297,36 @@ video::-webkit-media-controls-timeline {
   }
 }
 
-/* Mobile optimizations */
-@media (max-width: 768px) {
+/* Enhanced responsive design */
+@media (max-width: 640px) {
   .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  /* Hero section mobile adjustments */
+  .hero-title {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  .hero-badge {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
   }
 
   /* Faster marquee on mobile */
   .animate-marquee {
-    animation: marquee 20s linear infinite;
+    animation: marquee 15s linear infinite;
   }
 
   .animate-marquee-reverse {
-    animation: marquee-reverse 20s linear infinite;
+    animation: marquee-reverse 15s linear infinite;
   }
 
   /* Modal adjustments for mobile */
@@ -329,12 +345,12 @@ video::-webkit-media-controls-timeline {
   /* Tab navigation mobile */
   .tab-navigation {
     gap: 0.5rem;
-    padding: 0 1rem;
+    padding: 0 0.75rem;
   }
 
   .tab-button {
-    font-size: 0.875rem;
-    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
   }
 
   /* Load more button mobile */
@@ -344,16 +360,84 @@ video::-webkit-media-controls-timeline {
   }
 }
 
-/* Tablet optimizations */
-@media (max-width: 1024px) and (min-width: 769px) {
+/* Medium mobile screens */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  /* Marquee speed adjustment */
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+
+  .animate-marquee-reverse {
+    animation: marquee-reverse 20s linear infinite;
+  }
+
+  /* Project grid for tablets */
   .project-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .tab-button {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Large tablets */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.375rem;
+  }
+}
+
+/* Desktop optimizations */
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
   }
 }
 
 /* Large desktop optimizations */
 @media (min-width: 1280px) {
+  .hero-title {
+    font-size: 4.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+
   .project-grid {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -361,8 +445,40 @@ video::-webkit-media-controls-timeline {
 
 /* Ultra-wide screen optimizations */
 @media (min-width: 1536px) {
+  .hero-title {
+    font-size: 5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.625rem;
+  }
+
   .project-grid {
     grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Zoom level adjustments */
+@media (min-width: 1440px) {
+  .hero-container {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero-badge {
+    margin-bottom: 2rem;
+  }
+
+  .hero-title {
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-subtitle {
+    margin-bottom: 2rem;
+  }
+
+  .hero-stats {
+    margin-top: 3rem;
   }
 }
 
@@ -489,7 +605,6 @@ html {
   transform: none;
   box-shadow: none;
 }
-/* Add these new styles to your existing CSS */
 
 /* Team section enhancements */
 .team-member-card:hover .team-avatar {
@@ -597,6 +712,16 @@ html {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .client-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -605,13 +730,22 @@ html {
   }
 
   .about-hero h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .client-stats-grid {
+    grid-template-columns: 1fr;
   }
 }
+
 /* Enhanced background animations for about page */
 @keyframes float-1 {
   0%,
@@ -687,6 +821,7 @@ html {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(168, 85, 247, 0.4);
 }
+
 /* Line clamp utility */
 .line-clamp-2 {
   display: -webkit-box;
@@ -700,4 +835,50 @@ html {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Hero section specific improvements */
+.hero-section {
+  padding-top: 6rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    padding-top: 8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-section {
+    padding-top: 6rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero-section {
+    padding-top: 8rem;
+  }
+}
+
+/* Fixed header compensation */
+.section-with-header {
+  scroll-margin-top: 5rem;
+}
+
+/* Image loading fix */
+.project-image {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-image.loaded {
+  opacity: 1;
+}
+
+.project-image.error {
+  opacity: 0;
 }

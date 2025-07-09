@@ -26,7 +26,7 @@ export function PortfolioHero() {
   ];
 
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative pt-24 pb-16 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-black to-black"></div>
       <div className="absolute inset-0">
@@ -34,7 +34,7 @@ export function PortfolioHero() {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-600/10 rounded-full blur-3xl"></div>
       </div>
       
-      <div className="relative container mx-auto px-4">
+      <div className="relative container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
             Our <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Portfolio</span>

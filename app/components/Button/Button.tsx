@@ -29,18 +29,18 @@ export function Button({
   };
   
   const sizeClasses = {
-    sm: 'px-4 py-2 text-sm gap-2',
-    md: 'px-6 py-3 text-base gap-2',
-    lg: 'px-8 py-4 text-lg gap-3'
+    sm: 'px-3 py-2 text-sm gap-2',
+    md: 'px-4 py-2 text-sm gap-2',
+    lg: 'px-5 py-3 text-base gap-2'
   };
   
   const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
   
   return (
     <button className={classes} onClick={onClick}>
-      {Icon && iconPosition === 'left' && <Icon size={size === 'lg' ? 24 : size === 'md' ? 20 : 16} />}
+      {Icon && iconPosition === 'left' && <Icon size={size === 'lg' ? 18 : size === 'md' ? 16 : 14} />}
       {children}
-      {Icon && iconPosition === 'right' && <Icon size={size === 'lg' ? 24 : size === 'md' ? 20 : 16} />}
+      {Icon && iconPosition === 'right' && <Icon size={size === 'lg' ? 18 : size === 'md' ? 16 : 14} />}
     </button>
   );
 }

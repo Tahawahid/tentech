@@ -23,9 +23,9 @@ export function GetStartedButton({
   };
   
   const sizes = {
-    sm: "px-4 py-2 text-sm",
-    md: "px-6 py-3 text-base",
-    lg: "px-8 py-4 text-lg"
+    sm: "px-3 py-2 text-sm",
+    md: "px-4 py-2 text-sm",
+    lg: "px-5 py-3 text-base"
   };
   
   return (
@@ -33,9 +33,9 @@ export function GetStartedButton({
       href="/onboarding"
       className={`${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`}
     >
-      <Sparkles size={size === 'sm' ? 16 : size === 'lg' ? 20 : 18} />
+      <Sparkles size={size === 'sm' ? 14 : size === 'lg' ? 18 : 16} />
       {children}
-      <ArrowRight size={size === 'sm' ? 16 : size === 'lg' ? 20 : 18} />
+      <ArrowRight size={size === 'sm' ? 14 : size === 'lg' ? 18 : 16} />
     </a>
   );
 }

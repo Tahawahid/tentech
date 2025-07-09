@@ -1,6 +1,6 @@
 import React from 'react';
 import { Check, Star, Clock, Users } from 'lucide-react';
-import type { ServiceData } from '../../utils/serviceData';
+import type { ServiceData } from '../../../../utils/serviceData';
 
 interface ServiceDetailsSectionProps {
   service: ServiceData;
@@ -13,7 +13,7 @@ export function ServiceDetailsSection({ service }: ServiceDetailsSectionProps) {
       <div className="absolute top-20 right-10 w-80 h-80 bg-blue-400/15 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 left-10 w-64 h-64 bg-pink-400/15 rounded-full blur-2xl"></div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 max-w-6xl">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -114,14 +114,14 @@ export function ServiceDetailsSection({ service }: ServiceDetailsSectionProps) {
               <Clock className="text-white" size={24} />
             </div>
             <h3 className="text-xl font-bold text-white mb-3">Fast Delivery</h3>
-            <p className="text-gray-300">Quick turnaround times without compromising on quality</p>
+                        <p className="text-gray-300">Quick turnaround times without compromising on quality</p>
           </div>
           <div className="text-center">
             <div className="w-16 h-16 bg-gradient-to-r from-pink-600 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <Users className="text-white" size={24} />
             </div>
             <h3 className="text-xl font-bold text-white mb-3">Dedicated Support</h3>
-            <p className="text-gray-300">Personal support throughout the entire process</p>
+            <p className="text-gray-300">24/7 customer support throughout your project</p>
           </div>
         </div>
       </div>

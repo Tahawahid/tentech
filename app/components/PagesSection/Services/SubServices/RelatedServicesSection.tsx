@@ -21,7 +21,7 @@ export function RelatedServicesSection({ currentService }: RelatedServicesSectio
       <div className="absolute top-10 right-10 w-72 h-72 bg-purple-400/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-10 left-10 w-64 h-64 bg-blue-400/10 rounded-full blur-2xl"></div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 max-w-6xl">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">

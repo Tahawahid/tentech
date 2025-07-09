@@ -42,13 +42,13 @@ export function TeamSection() {
       <div className="absolute top-20 right-10 w-80 h-80 bg-blue-400/15 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 left-10 w-64 h-64 bg-pink-400/15 rounded-full blur-2xl"></div>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-6xl">
         {/* Section Header */}
         <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Meet Our <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Amazing Team</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Talented women from across Pakistan, united by creativity and passion for excellence
           </p>
         </div>
@@ -60,38 +60,38 @@ export function TeamSection() {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
               <div className="relative about-card-enhanced rounded-2xl p-6 text-center group-hover:border-purple-400/50 transition-all duration-300">
                 {/* Profile Image */}
-                <div className="relative w-24 h-24 mx-auto mb-4">
+                <div className="relative w-20 h-20 mx-auto mb-4">
                   <img
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover rounded-full border-4 border-purple-400/50"
                     onError={(e) => {
                       const target = e.currentTarget;
-                      target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=8b5cf6&color=ffffff&size=96`;
+                      target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=8b5cf6&color=ffffff&size=80`;
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-full group-hover:scale-110 transition-transform duration-300"></div>
                 </div>
                 
                 {/* Member Info */}
-                <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
-                <p className="text-purple-400 font-medium mb-2">{member.role}</p>
+                <h3 className="text-lg font-bold text-white mb-1">{member.name}</h3>
+                <p className="text-purple-400 font-medium mb-2 text-sm">{member.role}</p>
                 <div className="flex items-center justify-center gap-1 mb-3">
-                  <MapPin className="text-gray-400" size={14} />
-                  <span className="text-gray-400 text-sm">{member.location}</span>
+                  <MapPin className="text-gray-400" size={12} />
+                  <span className="text-gray-400 text-xs">{member.location}</span>
                 </div>
-                <p className="text-gray-300 text-sm mb-4">{member.bio}</p>
+                <p className="text-gray-300 text-xs mb-4">{member.bio}</p>
                 
                 {/* Social Links */}
-                <div className="flex justify-center gap-3">
+                <div className="flex justify-center gap-2">
                   <a href={member.social.linkedin} className="p-2 bg-white/10 rounded-full hover:bg-purple-600/50 transition-colors">
-                    <Linkedin size={16} className="text-white" />
+                    <Linkedin size={14} className="text-white" />
                   </a>
                   <a href={member.social.twitter} className="p-2 bg-white/10 rounded-full hover:bg-blue-600/50 transition-colors">
-                    <Twitter size={16} className="text-white" />
+                    <Twitter size={14} className="text-white" />
                   </a>
                   <a href={member.social.instagram} className="p-2 bg-white/10 rounded-full hover:bg-pink-600/50 transition-colors">
-                    <Instagram size={16} className="text-white" />
+                    <Instagram size={14} className="text-white" />
                   </a>
                 </div>
               </div>
@@ -109,9 +109,9 @@ export function TeamSection() {
               { value: '24/7', label: 'Dedication', sublabel: 'Passionate about craft' }
             ].map((stat, index) => (
               <div key={index}>
-                <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
-                <div className="text-purple-400 font-medium mb-1">{stat.label}</div>
-                <div className="text-gray-400 text-sm">{stat.sublabel}</div>
+                <div className="text-2xl font-bold text-white mb-2">{stat.value}</div>
+                <div className="text-purple-400 font-medium mb-1 text-sm">{stat.label}</div>
+                <div className="text-gray-400 text-xs">{stat.sublabel}</div>
               </div>
             ))}
           </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { X, ExternalLink, Calendar, Clock, Star, Quote } from 'lucide-react';
-import type { PortfolioProject } from '../../utils/portfolioData';
+import type { PortfolioProject } from '../../../utils/portfolioData';
 
 interface ProjectModalProps {
   project: PortfolioProject | null;

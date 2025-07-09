@@ -1,6 +1,6 @@
 import React from 'react';
 import { Clock, Star, Award, ArrowRight } from 'lucide-react';
-import type { ServiceData } from '../../utils/serviceData';
+import type { ServiceData } from '../../../../utils/serviceData';
 
 interface SubServiceHeroSectionProps {
   service: ServiceData;
@@ -14,7 +14,7 @@ export function SubServiceHeroSection({ service }: SubServiceHeroSectionProps) {
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl"></div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-2xl"></div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
@@ -43,16 +43,16 @@ export function SubServiceHeroSection({ service }: SubServiceHeroSectionProps) {
 
             {/* Quick Stats */}
             <div className="grid grid-cols-3 gap-6 mb-8">
-              <div className="text-center">
+              <div className="text-left">
                 <div className="text-2xl font-bold text-purple-400">${service.price.basic}+</div>
                 <div className="text-sm text-gray-400">Starting Price</div>
               </div>
-              <div className="text-center">
+              <div className="text-left">
                 <div className="text-2xl font-bold text-pink-400">{service.deliveryTime.basic}</div>
                 <div className="text-sm text-gray-400">Fast Delivery</div>
               </div>
-              <div className="text-center">
-                <div className="flex items-center justify-center gap-1 mb-1">
+              <div className="text-left">
+                <div className="flex items-center gap-1 mb-1">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="text-yellow-400 fill-current" size={16} />
                   ))}
@@ -63,10 +63,10 @@ export function SubServiceHeroSection({ service }: SubServiceHeroSectionProps) {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold px-8 py-4 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 hover:scale-105">
+              <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold px-6 py-3 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 hover:scale-105">
                 Get Started - ${service.price.basic}
               </button>
-              <button className="border border-white/20 text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition-all duration-300">
+              <button className="border border-white/20 text-white font-semibold px-6 py-3 rounded-full hover:bg-white/10 transition-all duration-300">
                 View Portfolio
               </button>
             </div>

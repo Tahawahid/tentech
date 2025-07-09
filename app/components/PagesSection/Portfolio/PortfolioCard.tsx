@@ -1,6 +1,6 @@
 import React from 'react';
 import { ExternalLink, Calendar, Tag } from 'lucide-react';
-import type { PortfolioProject } from '../../utils/portfolioData';
+import type { PortfolioProject } from '../../../utils/portfolioData';
 
 interface PortfolioCardProps {
   project: PortfolioProject;

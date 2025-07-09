@@ -44,15 +44,15 @@ export function WhyChooseUsSection() {
   return (
     <section className="py-20 bg-gradient-to-b from-purple-900/30 via-pink-900/20 to-orange-900/30 relative overflow-hidden">
       <div className="absolute top-1/4 left-0 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl"></div>
-<div className="absolute bottom-1/4 right-0 w-80 h-80 bg-orange-400/10 rounded-full blur-3xl"></div>
-<div className="absolute top-0 right-1/3 w-48 h-48 bg-pink-400/15 rounded-full blur-2xl"></div>
+      <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-orange-400/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 right-1/3 w-48 h-48 bg-pink-400/15 rounded-full blur-2xl"></div>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Why Choose <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Mascort?</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             More than just a creative studio - we're your partners in success
           </p>
         </div>
@@ -65,7 +65,7 @@ export function WhyChooseUsSection() {
                 <div className={`w-16 h-16 bg-gradient-to-r ${reason.gradient} rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   <reason.icon className="text-white" size={24} />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">{reason.title}</h3>
+                <h3 className="text-xl font-bold text-white mb-4">{reason.title}</h3>
                 <p className="text-gray-300 leading-relaxed">{reason.description}</p>
               </div>
             </div>
@@ -75,11 +75,11 @@ export function WhyChooseUsSection() {
         {/* Call to Action */}
         <div className="text-center mt-16">
           <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-4">Ready to Work Together?</h3>
+            <h3 className="text-xl font-bold text-white mb-4">Ready to Work Together?</h3>
             <p className="text-gray-300 mb-6">
               Join hundreds of content creators who trust Mascort for their creative needs
             </p>
-            <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold px-8 py-3 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 hover:scale-105">
+            <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold px-6 py-3 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 hover:scale-105">
               Start Your Project
             </button>
           </div>

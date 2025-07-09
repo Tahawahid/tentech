@@ -16,14 +16,15 @@ export function ClientStatsSection() {
   return (
     <section className="py-20 bg-gradient-to-b from-pink-900/30 via-purple-900/20 to-indigo-900/30 relative overflow-hidden">
       <div className="absolute top-0 left-1/4 w-72 h-72 bg-pink-400/10 rounded-full blur-3xl"></div>
-<div className="absolute bottom-0 right-1/4 w-72 h-72 bg-indigo-400/10 rounded-full blur-3xl"></div>
-      <div className="container mx-auto px-4">
+      <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-indigo-400/10 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto px-4 max-w-6xl">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Our <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Impact</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Numbers that speak to our commitment to excellence and client success
           </p>
         </div>
@@ -37,7 +38,7 @@ export function ClientStatsSection() {
                 <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <stat.icon className="text-white" size={24} />
                 </div>
-                <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
+                <div className="text-2xl font-bold text-white mb-2">{stat.value}</div>
                 <div className="text-purple-400 font-medium mb-1">{stat.label}</div>
                 <div className="text-gray-400 text-sm">{stat.desc}</div>
               </div>
@@ -49,7 +50,7 @@ export function ClientStatsSection() {
         <div className="mt-16 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-8 text-center">
           <div className="max-w-3xl mx-auto">
             <div className="text-4xl text-purple-400 mb-4">"</div>
-            <p className="text-xl text-gray-300 italic mb-6">
+            <p className="text-lg text-gray-300 italic mb-6">
               "Working with Mascort has been incredible. Their team's creativity and dedication 
               is unmatched. As a fellow advocate for women empowerment, I'm proud to support 
               their mission while getting world-class results."
