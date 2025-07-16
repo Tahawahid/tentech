@@ -10,15 +10,15 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-black to-pink-900">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM5QzkyQUMiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIi8+PC9nPjwvZz48L3N2Zz4=')] opacity-30"></div>
       </div>
-      
+
       <div className="container mx-auto px-4 relative z-10 max-w-4xl">
         <div className="text-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-lg rounded-full px-4 py-2 mb-6 border border-white/20">
             <Sparkles size={16} className="text-yellow-400" />
-            <span className="text-white text-sm font-medium">Women-Powered Creative Studio from Pakistan</span>
+            <span className="text-white text-sm font-medium">Women-Powered Creative Studio</span>
           </div>
-          
+
           {/* Main Heading */}
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
             <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -27,25 +27,25 @@ export function HeroSection() {
             <br />
             <span className="text-white">Content Game</span>
           </h1>
-          
+
           {/* Subheading */}
           <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">
-            Professional overlays, animated intros, custom emotes, and stunning graphics designed specifically for 
-            <span className="text-purple-400 font-semibold"> Twitch streamers</span>, 
-            <span className="text-pink-400 font-semibold"> YouTubers</span>, and 
+            Professional overlays, animated intros, custom emotes, and stunning graphics designed specifically for
+            <span className="text-purple-400 font-semibold"> Twitch streamers</span>,
+            <span className="text-pink-400 font-semibold"> YouTubers</span>, and
             <span className="text-purple-400 font-semibold"> content creators</span>
           </p>
-          
+
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-           <GetStartedButton variant="primary" size="lg">
+            <GetStartedButton variant="primary" size="lg">
               Start Your Project
             </GetStartedButton>
             <Button variant="outline" size="lg" icon={Play}>
               View Our Work
             </Button>
           </div>
-          
+
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
             <div className="text-center">

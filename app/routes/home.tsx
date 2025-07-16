@@ -8,6 +8,7 @@ import { AboutSection } from "../components/PagesSection/Home/AboutSection";
 import { TestimonialsSection } from "../components/Section/TestimonialsSection";
 import { ContactForm } from "../components/Form/ContactForm";
 import { Footer } from "../components/Layout/Footer";
+import { ChatProvider } from "../components/Chat/ChatProvider";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -32,6 +33,7 @@ export default function Home() {
       <TestimonialsSection />
       <ContactForm />
       <Footer />
+      <ChatProvider />
     </div>
   );
 }

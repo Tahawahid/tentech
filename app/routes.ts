@@ -5,6 +5,5 @@ export default [
   route("about", "routes/about.tsx"),
   route("services", "routes/services.tsx"),
   route("services/:serviceId", "routes/services.$serviceId.tsx"),
-  route("portfolio", "routes/portfolio.tsx"),
-  route("onboarding", "routes/onboarding.tsx")
+  route("portfolio", "routes/portfolio.tsx")
 ] satisfies RouteConfig;

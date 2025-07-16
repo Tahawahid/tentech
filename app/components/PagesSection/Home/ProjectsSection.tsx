@@ -21,29 +21,29 @@ export function ProjectsSection() {
   // Helper function to find working image format
   const findWorkingImageSrc = (basePath: string, fileName: string): Promise<string> => {
     const extensions = ['png', 'jpg', 'jpeg', 'webp', 'svg'];
-    
-    return new Promise((resolve) => {
+
+    return new Promise(resolve => {
       let index = 0;
-      
+
       const tryNextExtension = () => {
         if (index >= extensions.length) {
           // If no format works, return default PNG
           resolve(`${basePath}/${fileName}.png`);
           return;
         }
-        
+
         const img = new Image();
         const src = `${basePath}/${fileName}.${extensions[index]}`;
-        
+
         img.onload = () => resolve(src);
         img.onerror = () => {
           index++;
           tryNextExtension();
         };
-        
+
         img.src = src;
       };
-      
+
       tryNextExtension();
     });
   };
@@ -57,59 +57,59 @@ export function ProjectsSection() {
         type: 'banner' as const,
         title: `Stream Banner ${i + 1}`,
         category: 'Stream Graphics',
-        src: `/images/banner/${i + 1}`,
-        isVideo: false
+        src: `/app/assets/images/banner/${i + 1}`,
+        isVideo: false,
       })),
-      
+
       // Logo images
       ...Array.from({ length: 23 }, (_, i) => ({
         id: `logo-${i + 1}`,
         type: 'logo' as const,
         title: `Logo Design ${i + 1}`,
         category: 'Brand Identity',
-        src: `/images/logos/${i + 1}`,
-        isVideo: false
+        src: `/app/assets/images/logos/${i + 1}`,
+        isVideo: false,
       })),
-      
+
       // Video intros
       ...Array.from({ length: 6 }, (_, i) => ({
         id: `intro-${i + 1}`,
         type: 'intro' as const,
         title: `Animated Intro ${i + 1}`,
         category: 'Video Animation',
-        src: `/Videos/intro/${i + 1}.mp4`,
-        isVideo: true
+        src: `/app/assets/Videos/intro/${i + 1}.mp4`,
+        isVideo: true,
       })),
-      
+
       // Video outros
       ...Array.from({ length: 3 }, (_, i) => ({
         id: `outro-${i + 1}`,
         type: 'outro' as const,
         title: `Animated Outro ${i + 1}`,
         category: 'Video Animation',
-        src: `/Videos/Outro/${i + 1}.mp4`,
-        isVideo: true
+        src: `/app/assets/Videos/Outro/${i + 1}.mp4`,
+        isVideo: true,
       })),
-      
+
       // Mascort projects
       ...Array.from({ length: 4 }, (_, i) => ({
         id: `mascort-${i + 1}`,
         type: 'mascort' as const,
         title: `Mascort Project ${i + 1}`,
         category: 'Complete Package',
-        src: `/images/banner/${i + 1}`,
-        isVideo: false
+        src: `/app/assets/images/banner/${i + 1}`,
+        isVideo: false,
       })),
-      
+
       // Emotes
       ...Array.from({ length: 8 }, (_, i) => ({
         id: `emote-${i + 1}`,
         type: 'emote' as const,
         title: `Custom Emote ${i + 1}`,
         category: 'Twitch Emotes',
-        src: `/images/logos/${i + 1}`,
-        isVideo: false
-      }))
+        src: `/app/assets/images/logos/${i + 1}`,
+        isVideo: false,
+      })),
     ];
   };
 
@@ -119,10 +119,12 @@ export function ProjectsSection() {
   useEffect(() => {
     const resolveImageSources = async () => {
       const updatedProjects = await Promise.all(
-        projects.map(async (project) => {
+        projects.map(async project => {
           if (!project.isVideo && !project.actualSrc) {
             try {
-              const basePath = project.src.includes('/banner/') ? '/images/banner' : '/images/logos';
+              const basePath = project.src.includes('/banner/')
+                ? '/app/assets/images/banner'
+                : '/app/assets/images/logos';
               const fileName = project.src.split('/').pop() || '1';
               const actualSrc = await findWorkingImageSrc(basePath, fileName);
               return { ...project, actualSrc };
@@ -131,7 +133,7 @@ export function ProjectsSection() {
             }
           }
           return project;
-        })
+        }),
       );
       setProjects(updatedProjects);
     };
@@ -146,12 +148,10 @@ export function ProjectsSection() {
     { id: 'intro', label: 'Intros', count: projects.filter(p => p.type === 'intro').length },
     { id: 'outro', label: 'Outros', count: projects.filter(p => p.type === 'outro').length },
     { id: 'mascort', label: 'Mascort', count: projects.filter(p => p.type === 'mascort').length },
-    { id: 'emote', label: 'Emotes', count: projects.filter(p => p.type === 'emote').length }
+    { id: 'emote', label: 'Emotes', count: projects.filter(p => p.type === 'emote').length },
   ];
 
-  const filteredProjects = activeTab === 'all' 
-    ? projects 
-    : projects.filter(project => project.type === activeTab);
+  const filteredProjects = activeTab === 'all' ? projects : projects.filter(project => project.type === activeTab);
 
   const visibleProjects = filteredProjects.slice(0, visibleCount);
   const hasMoreProjects = visibleCount < filteredProjects.length;
@@ -179,10 +179,11 @@ export function ProjectsSection() {
   };
 
   const navigateProject = (direction: 'prev' | 'next') => {
-    const newIndex = direction === 'prev' 
-      ? (currentIndex - 1 + filteredProjects.length) % filteredProjects.length
-      : (currentIndex + 1) % filteredProjects.length;
-    
+    const newIndex =
+      direction === 'prev'
+        ? (currentIndex - 1 + filteredProjects.length) % filteredProjects.length
+        : (currentIndex + 1) % filteredProjects.length;
+
     setCurrentIndex(newIndex);
     setSelectedProject(filteredProjects[newIndex]);
   };
@@ -204,15 +205,18 @@ export function ProjectsSection() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Our <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Portfolio</span>
+            Our{' '}
+            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              Portfolio
+            </span>
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
             Discover the incredible work created by our talented team of women designers and animators
           </p>
-          
+
           {/* Tab Navigation */}
           <div className="flex flex-wrap justify-center gap-2 md:gap-4">
-            {tabs.map((tab) => (
+            {tabs.map(tab => (
               <button
                 key={tab.id}
                 onClick={() => handleTabChange(tab.id)}
@@ -227,18 +231,20 @@ export function ProjectsSection() {
               </button>
             ))}
           </div>
-                </div>
+        </div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
           {visibleProjects.map((project, index) => (
             <div
               key={project.id}
-              className={`group relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-purple-400/50 transition-all duration-300 cursor-pointer transform hover:scale-105 ${getGridItemClass(project)}`}
+              className={`group relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-purple-400/50 transition-all duration-300 cursor-pointer transform hover:scale-105 ${getGridItemClass(
+                project,
+              )}`}
               onClick={() => openModal(project)}
-              style={{ 
+              style={{
                 animationDelay: `${index * 0.1}s`,
-                animation: 'fadeInUp 0.6s ease-out both'
+                animation: 'fadeInUp 0.6s ease-out both',
               }}
             >
               {/* Project Media */}
@@ -251,8 +257,8 @@ export function ProjectsSection() {
                       muted
                       loop
                       playsInline
-                      onMouseEnter={(e) => e.currentTarget.play()}
-                      onMouseLeave={(e) => {
+                      onMouseEnter={e => e.currentTarget.play()}
+                      onMouseLeave={e => {
                         e.currentTarget.pause();
                         e.currentTarget.currentTime = 0;
                       }}
@@ -268,14 +274,15 @@ export function ProjectsSection() {
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                       loading="lazy"
-                      onError={(e) => {
+                      onError={e => {
                         // Fallback gradient background if image fails to load
                         const target = e.currentTarget;
                         target.style.display = 'none';
                         if (target.parentElement) {
                           target.parentElement.style.background = 'linear-gradient(135deg, #8b5cf6, #ec4899)';
                           const fallbackText = document.createElement('div');
-                          fallbackText.className = 'absolute inset-0 flex items-center justify-center text-white font-semibold text-center p-4';
+                          fallbackText.className =
+                            'absolute inset-0 flex items-center justify-center text-white font-semibold text-center p-4';
                           fallbackText.textContent = project.title;
                           target.parentElement.appendChild(fallbackText);
                         }
@@ -322,13 +329,11 @@ export function ProjectsSection() {
                   <>
                     <Plus size={20} />
                     <span>View More Projects</span>
-                    <span className="text-sm opacity-75">
-                      ({filteredProjects.length - visibleCount} remaining)
-                    </span>
+                    <span className="text-sm opacity-75">({filteredProjects.length - visibleCount} remaining)</span>
                   </>
                 )}
               </div>
-              
+
               <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </button>
           </div>
@@ -362,10 +367,7 @@ export function ProjectsSection() {
                 <h3 className="text-2xl font-bold text-white">{selectedProject.title}</h3>
                 <p className="text-gray-300">{selectedProject.category}</p>
               </div>
-              <button
-                onClick={closeModal}
-                className="p-2 hover:bg-white/20 rounded-full transition-colors"
-              >
+              <button onClick={closeModal} className="p-2 hover:bg-white/20 rounded-full transition-colors">
                 <X className="text-white" size={24} />
               </button>
             </div>
@@ -384,12 +386,13 @@ export function ProjectsSection() {
                   src={getImageSrc(selectedProject)}
                   alt={selectedProject.title}
                   className="w-full h-auto max-h-[60vh] object-contain bg-black"
-                  onError={(e) => {
+                  onError={e => {
                     const target = e.currentTarget;
                     target.style.display = 'none';
                     if (target.parentElement) {
                       const fallback = document.createElement('div');
-                      fallback.className = 'w-full h-60 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center text-white text-xl font-semibold';
+                      fallback.className =
+                        'w-full h-60 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center text-white text-xl font-semibold';
                       fallback.textContent = selectedProject.title;
                       target.parentElement.appendChild(fallback);
                     }
@@ -422,9 +425,7 @@ export function ProjectsSection() {
                 <div className="text-gray-300">
                   Project {currentIndex + 1} of {filteredProjects.length}
                 </div>
-                <div className="text-sm text-gray-400">
-                  Created by our talented women team 💜
-                </div>
+                <div className="text-sm text-gray-400">Created by our talented women team 💜</div>
               </div>
             </div>
           </div>
