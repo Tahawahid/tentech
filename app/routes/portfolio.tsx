@@ -1,25 +1,39 @@
 import React, { useState, useMemo } from 'react';
-import type { Route } from "./+types/portfolio";
-import { Header } from "../components/Layout/Header";
-import { PortfolioHero } from "../components/PagesSection/Portfolio/PortfolioHero";
-import { PortfolioFilter } from "../components/PagesSection/Portfolio/PortfolioFilter";
-import { PortfolioCard } from "../components/PagesSection/Portfolio/PortfolioCard";
-import { ProjectModal } from "../components/PagesSection/Portfolio/ProjectModal";
-import { ContactForm } from "../components/Form/ContactForm";
-import { Footer } from "../components/Layout/Footer";
-import { getAllProjects, getCategories, type PortfolioProject } from "../utils/portfolioData";
-
+import type { Route } from './+types/portfolio';
+import { Header } from '../components/Layout/Header';
+import { PortfolioHero } from '../components/PagesSection/Portfolio/PortfolioHero';
+import { PortfolioFilter } from '../components/PagesSection/Portfolio/PortfolioFilter';
+import { PortfolioCard } from '../components/PagesSection/Portfolio/PortfolioCard';
+import { ProjectModal } from '../components/PagesSection/Portfolio/ProjectModal';
+import { ContactForm } from '../components/Form/ContactForm';
+import { Footer } from '../components/Layout/Footer';
+import { getAllProjects, getCategories, type PortfolioProject } from '../utils/portfolioData';
+import { ChatProvider } from '../components/Chat/ChatProvider';
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Portfolio - Mascort | Professional Graphics & Video Animation Projects" },
-    { name: "description", content: "Explore our portfolio of premium graphics, video animations, stream overlays, and brand design projects for content creators and businesses worldwide." },
-    { name: "keywords", content: "portfolio, graphics design, video animation, stream overlays, brand design, content creation, digital art, mascort projects" },
-    { property: "og:title", content: "Portfolio - Mascort Professional Design Work" },
-    { property: "og:description", content: "Discover our creative portfolio featuring premium graphics and animations for content creators" },
-    { property: "og:type", content: "website" },
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Portfolio - Mascort Creative Work" },
-    { name: "twitter:description", content: "Premium graphics & animations portfolio by our all-women creative studio" },
+    { title: 'Portfolio - Mascort | Professional Graphics & Video Animation Projects' },
+    {
+      name: 'description',
+      content:
+        'Explore our portfolio of premium graphics, video animations, stream overlays, and brand design projects for content creators and businesses worldwide.',
+    },
+    {
+      name: 'keywords',
+      content:
+        'portfolio, graphics design, video animation, stream overlays, brand design, content creation, digital art, mascort projects',
+    },
+    { property: 'og:title', content: 'Portfolio - Mascort Professional Design Work' },
+    {
+      property: 'og:description',
+      content: 'Discover our creative portfolio featuring premium graphics and animations for content creators',
+    },
+    { property: 'og:type', content: 'website' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Portfolio - Mascort Creative Work' },
+    {
+      name: 'twitter:description',
+      content: 'Premium graphics & animations portfolio by our all-women creative studio',
+    },
   ];
 }
 
@@ -58,7 +72,7 @@ export default function Portfolio() {
     <div className="min-h-screen bg-black">
       <Header />
       <PortfolioHero />
-      
+
       {/* Portfolio Grid Section */}
       <section className="py-20 bg-gradient-to-b from-black to-purple-900/10">
         <div className="container mx-auto px-4 max-w-6xl">
@@ -68,18 +82,14 @@ export default function Portfolio() {
             activeCategory={activeCategory}
             onCategoryChange={handleCategoryChange}
           />
-          
+
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project) => (
-              <PortfolioCard
-                key={project.id}
-                project={project}
-                onProjectClick={handleProjectClick}
-              />
+            {filteredProjects.map(project => (
+              <PortfolioCard key={project.id} project={project} onProjectClick={handleProjectClick} />
             ))}
           </div>
-          
+
           {/* Empty State */}
           {filteredProjects.length === 0 && (
             <div className="text-center py-20">
@@ -92,36 +102,37 @@ export default function Portfolio() {
           )}
         </div>
       </section>
-      
+
       {/* Featured Projects Section */}
       <section className="py-20 bg-gradient-to-b from-purple-900/10 to-black">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Featured <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Work</span>
+              Featured{' '}
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Work</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               Our most impactful projects that showcase our creative excellence and client success stories
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {projects.filter(p => p.featured).slice(0, 4).map((project) => (
-              <PortfolioCard
-                key={project.id}
-                project={project}
-                onProjectClick={handleProjectClick}
-              />
-            ))}
+            {projects
+              .filter(p => p.featured)
+              .slice(0, 4)
+              .map(project => (
+                <PortfolioCard key={project.id} project={project} onProjectClick={handleProjectClick} />
+              ))}
           </div>
         </div>
       </section>
-      
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-purple-900/20 to-pink-900/20">
         <div className="container mx-auto px-4 max-w-6xl text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Create Something <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Amazing</span>?
+            Ready to Create Something{' '}
+            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Amazing</span>?
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
             Let's bring your creative vision to life with our professional design and animation services
@@ -142,16 +153,12 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
-      
+
       <ContactForm />
       <Footer />
-      
+      <ChatProvider />
       {/* Project Modal */}
-      <ProjectModal
-        project={selectedProject}
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-      />
+      <ProjectModal project={selectedProject} isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
 }
